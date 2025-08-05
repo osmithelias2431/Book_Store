@@ -12,31 +12,31 @@
         <h1>The Best Book Store</h1>
     </header>
     <!-- Add Book Form -->
-    <form> 
-        <h3>Add a New Book</h3>
+    <form id="addBookForm"> 
+        <h2>Add a New Book</h2>
         <br>
         <label>
             Title:
-            <input type="text" placeholder="Add Book Title">
+            <input type="text" class="title" placeholder="Add Book Title">
         </label>
-        <br>
+        <br> <br>
         <label>
             Author:
-            <input type="text" placeholder="Add Author's Name">
+            <input type="text" class="author" placeholder="Add Author's Name">
         </label>
-        <br>
+        <br><br>
         <label>
             Publisher:
-            <input type="text" placeholder="Add Publisher's Name">
+            <input type="text" class="publisher" placeholder="Add Publisher's Name">
         </label>
-        <br>
-        <button type="submit">Add Book</button>
+        <br><br>
+        <button type="submit" class="add">Add Book</button>
     </form>
     <section>
         <h2>Your Book List</h2>
-        <ul id="book-list">
-            <!-- Book items will be dynamically added here -->
-        </ul>
+        <div class="bookContainer">
+           
+        </div>
     </section>
     
     <script src="index.js"></script>
