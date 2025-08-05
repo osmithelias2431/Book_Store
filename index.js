@@ -1,3 +1,4 @@
+// Add book to list
 class book {
     constructor(title, author, publisher) {
         this.title = title;
@@ -20,17 +21,35 @@ form.addEventListener('submit', (event) => {
     const newBook = new book(title, author, publisher);
     books.push(newBook); // Add the new book to the array
 
-            // Create and display the new book element
+    // Create and display the new book element
     const bookElement = document.createElement('div');
     bookElement.classList.add('book-item');
     
     bookElement.innerHTML = `
     <h3>${newBook.title}</h3>
-    <p>Author: ${newBook.author}</p>
+    <p>By: ${newBook.author}</p>
     <p>Publisher: ${newBook.publisher}</p>`;
     bookList.appendChild(bookElement);
 
-            // Clear the form
+    // Clear the form
     form.reset(); // Resets all form fields
         
 });
+
+// Fetch books from api
+const api = 'https://bookstore-api-six.vercel.app/api/books';
+
+async function fetchBooks() {
+    try {
+        const response = await fetch(api);
+        const data = await response.json();
+
+        data.forEach(book => {
+            const newBook = new book(book.title, book.author, book.publisher);
+            books.push(newBook);
+            displayBook(newBook);
+        });
+    } catch (error) {
+        console.error('Error fetching books:', error);
+    }
+}
