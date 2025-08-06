@@ -1,5 +1,5 @@
 // Add book to list
-class book {
+class Book {
     constructor(title, author, publisher) {
         this.title = title;
         this.author = author;
@@ -44,12 +44,31 @@ async function fetchBooks() {
         const response = await fetch(api);
         const data = await response.json();
 
-        data.forEach(book => {
-            const newBook = new book(book.title, book.author, book.publisher);
+        data.forEach(item => {
+            const newBook = new Book(item.title, item.author, item.publisher);
             books.push(newBook);
             displayBook(newBook);
         });
     } catch (error) {
-        console.error('Error fetching books:', error);
+        console.log(error);
     }
 }
+
+// Display books in the book list
+async function displayBook(book) {
+    const apiData = await fetchBooks();
+
+    if (apiData) {
+        const bookContainer = document.querySelector('.bookContainer');
+
+        const bookElement = document.createElement('div');
+        apiData.forEach(item => {
+            const bookItem = document.createElement('div');
+            bookItem.textContent = `${item.title} by ${item.author}. Published by ${item.publisher}`;
+            bookElement.appendChild(bookItem);
+        })
+        bookContainer.appendChild(bookElement);
+    }
+}
+// Call the function to fetch and display books
+fetchBooks();
