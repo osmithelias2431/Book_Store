@@ -5,6 +5,9 @@ html, body {
     margin: 0;
     padding: 0;
 }
+h2 {
+    color: rgb(95, 61, 13);
+}
 /* Header Styling */
 .header {
     background-color: rgb(215, 190, 150);
@@ -22,7 +25,7 @@ html, body {
     background-color: rgb(255, 250, 240);
     color: rgb(95, 61, 13);
     padding: 15px;
-    margin: 20px auto;
+    margin: 30px auto;
     border: 2px solid rgb(215, 190, 150);
     border-radius: 8px;
     max-width: 80%;
@@ -47,10 +50,51 @@ h3 {
     width: 8rem;
     height: 3rem;
     font-size: 1rem;
+    text-align: center;
 }
 .add:hover {
     background-color: rgb(195, 170, 130);
 }
 .add:active {
+    background-color: rgb(175, 150, 110);
+}
+/* Book List Styling */
+#line {
+    border: 0;
+    height: 1px;
+    background-color: rgb(215, 190, 150);
+    margin-top: 30px;
+}
+#bookListTitle {
+    text-align: center;
+    margin-top: 35px;
+}
+.book-item {
+    background-color: rgb(255, 250, 240);
+    color: rgb(95, 61, 13);padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid rgb(215, 190, 150);
+    border-radius: 6px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.delete-button {
+    background-color: rgb(215, 190, 150);
+    color: rgb(95, 61, 13);
+    padding: 10px 20px;
+    border: 1px solid rgb(95, 61, 13);
+    border-radius: 20px;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-top: 10px;
+    position: absolute;
+    font-size: 0.8rem;
+}
+.delete-button:hover {
+    background-color: rgb(195, 170, 130);
+}
+.delete-button:active {
     background-color: rgb(175, 150, 110);
 }
