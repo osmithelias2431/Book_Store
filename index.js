@@ -48,6 +48,9 @@ form.addEventListener('submit', (event) => {
 function displayBook(book) {
     const bookElement = document.createElement('div');
     bookElement.classList.add('book-item');
+    if (book.id) {
+        bookElement.dataset.id = book.id;
+    }
     bookElement.innerHTML = `
         <h3>${book.title}</h3>
         <p>By: ${book.author}</p>
@@ -73,6 +76,7 @@ async function fetchBooks() {
         bookList.innerHTML = ""; // Clear the list before displaying
         data.forEach(item => {
             const newBook = new Book(item.title, item.author, item.publisher);
+            newBook.id = item.id; // Assign the ID from the API
             books.push(newBook);
             displayBook(newBook);
         });
@@ -84,11 +88,29 @@ async function fetchBooks() {
 fetchBooks();
 
 // Handle delete button click
+const baseApi = 'https://bookstore-api-six.vercel.app/api/books';
 const button = document.querySelector('.delete-button');
 function handleDelete(event) {
     if (event.target.classList.contains('delete-button')) {
         const bookItem = event.target.parentElement;
+        const bookId = bookItem.dataset.id;
+        // Optionally, send DELETE request to API here using bookId
+        if (bookId) {
+            fetch(`${baseApi}/${bookId}`, {
+                method: 'DELETE'
+            })
+            .then(response => {
+                if (response.ok) {
+                    bookList.removeChild(bookItem);
+                } else {
+                    alert('Failed to delete book from server.');
+                }
+            })
+            .catch(() => alert('Error deleting book.'));
+        } else {
+            // If no id, just remove from DOM
         bookList.removeChild(bookItem);
+        }
     }
 }
 bookList.addEventListener('click', handleDelete);
