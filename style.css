@@ -1,0 +1,56 @@
+body {
+    background-color: rgb(245, 232, 211);
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+/* Header Styling */
+.header {
+    background-color: rgb(215, 190, 150);
+    color: rgb(95, 61, 13);
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    max-height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Add Book Form Styling */
+#addBookForm {
+    background-color: rgb(255, 250, 240);
+    color: rgb(95, 61, 13);
+    padding: 15px;
+    margin: 20px auto;
+    border: 2px solid rgb(215, 190, 150);
+    border-radius: 8px;
+    max-width: 80%;
+}
+h3 {
+    margin: 15px 0;
+}
+.text {
+    width: 90%;
+    padding: 8px;
+    margin-top: 0;
+    border: 1px solid rgb(215, 190, 150);
+    border-radius: 4px;
+}
+.add {
+    background-color: rgb(215, 190, 150);
+    color: rgb(95, 61, 13);
+    padding: 10px 20px;
+    border: 1px solid rgb(95, 61, 13);
+    border-radius: 4px;
+    cursor: pointer;
+    width: 8rem;
+    height: 3rem;
+    font-size: 1rem;
+}
+.add:hover {
+    background-color: rgb(195, 170, 130);
+}
+.add:active {
+    background-color: rgb(175, 150, 110);
+}

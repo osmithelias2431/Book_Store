@@ -15,9 +15,9 @@ const bookList = document.querySelector(".bookContainer")
 form.addEventListener('submit', (event) => { 
     event.preventDefault();
 
-    const title = document.querySelector('.title').value;
-    const author = document.querySelector('.author').value;
-    const publisher = document.querySelector('.publisher').value;
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    const publisher = document.querySelector('#publisher').value;
 
     const newBook = new Book(title, author, publisher);
     books.push(newBook); // Add the new book to the array
